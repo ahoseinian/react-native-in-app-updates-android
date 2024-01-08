@@ -20,3 +20,17 @@ const InAppUpdatesAndroid = NativeModules.InAppUpdatesAndroid
 export function multiply(a: number, b: number): Promise<number> {
   return InAppUpdatesAndroid.multiply(a, b);
 }
+
+export function checkForUpdate(options: {
+  stalenessDays: number;
+}): Promise<'update_exists' | 'update_downloaded' | 'no_updates_available'> {
+  return InAppUpdatesAndroid.checkForUpdate(options);
+}
+
+export function startFlexibleUpdate(): Promise<void> {
+  return InAppUpdatesAndroid.startFlexibleUpdate();
+}
+
+export function installFlexibleUpdate(): Promise<void> {
+  return InAppUpdatesAndroid.installFlexibleUpdate();
+}
